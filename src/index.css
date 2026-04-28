@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'cv11', 'ss01';
+    font-size: 110%;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #374151;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background: rgba(222, 28, 28, 0.12);
+    color: #DE1C1C;
+  }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5
+           bg-primary text-white text-sm font-semibold rounded-xl
+           hover:bg-primary-dark hover:-translate-y-0.5
+           active:translate-y-0
+           transition-all duration-200;
+    box-shadow: 0 4px 16px rgba(222,28,28,0.18);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 8px 32px rgba(222,28,28,0.25);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5
+           border border-border text-dark text-sm font-semibold rounded-xl bg-white
+           hover:border-primary/30 hover:text-primary hover:shadow-md hover:-translate-y-0.5
+           active:translate-y-0
+           transition-all duration-200;
+  }
+
+  .btn-ghost-light {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           text-primary text-sm font-medium rounded-lg
+           border border-primary/20 bg-primary/5
+           hover:bg-primary/10 hover:border-primary/30
+           transition-all duration-200;
+  }
+
+  /* ── Section layout ── */
+  .section-wrap {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-py {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* ── Eyebrow label ── */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold tracking-[0.12em] uppercase text-primary mb-5;
+  }
+
+  /* ── Section title ── */
+  .section-h2 {
+    @apply text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.12] tracking-tight text-dark;
+  }
+
+  .section-h2-light {
+    @apply text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.12] tracking-tight text-white;
+  }
+
+  .section-lead {
+    @apply text-base sm:text-lg text-muted leading-relaxed max-w-2xl;
+  }
+
+  /* ── Card ── */
+  .card {
+    @apply bg-white rounded-2xl border border-border
+           hover:-translate-y-0.5
+           transition-all duration-300;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.06);
+  }
+
+  /* ── Tag / Pill ── */
+  .tag {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full
+           text-xs font-semibold;
+  }
+
+  .tag-primary { @apply tag bg-primary-50 text-primary; }
+  .tag-amber { @apply tag bg-amber-50 text-amber-700; }
+  .tag-neutral { @apply tag bg-slate-100 text-muted border border-border; }
+
+  /* ── Gradient text ── */
+  .text-gradient {
+    background-image: linear-gradient(to right, #DE1C1C, #F04848, #FEA418);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ── Icon box ── */
+  .icon-box {
+    @apply w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0;
+  }
+  .icon-box-primary { @apply icon-box bg-primary-50 text-primary; }
+  .icon-box-amber { @apply icon-box bg-amber-50 text-amber-600; }
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  }
+
+  .text-balance { text-wrap: balance; }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/50;
+  }
+
+  .shadow-primarySm {
+    box-shadow: 0 4px 16px rgba(222,28,28,0.18);
+  }
+  .shadow-glowSm {
+    box-shadow: 0 0 20px rgba(222,28,28,0.12);
+  }
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #F9D1D1;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: #DE1C1C; }
+
+/* ── Ticker keyframe ── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Scrollbar utility ── */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
