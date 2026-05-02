@@ -158,10 +158,20 @@
 }
 ::-webkit-scrollbar-thumb:hover { background: #DE1C1C; }
 
-/* ── Ticker keyframe ── */
+/* ── Ticker keyframes ── */
 @keyframes ticker {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+
+@keyframes tickerMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+@keyframes tickerReverse {
+  from { transform: translateX(-33.333%); }
+  to   { transform: translateX(0); }
 }
 
 /* ── Scrollbar utility ── */

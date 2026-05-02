@@ -63,7 +63,11 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-muted hover:text-primary rounded-lg hover:bg-primary-50 transition-all duration-150"
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 ${
+                  scrolled
+                    ? 'text-muted hover:text-primary hover:bg-primary-50'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                }`}
               >
                 {link.name}
               </a>
@@ -80,7 +84,9 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg hover:bg-primary-50 transition-colors text-dark"
+            className={`lg:hidden w-9 h-9 flex items-center justify-center rounded-lg transition-colors ${
+              scrolled ? 'text-dark hover:bg-primary-50' : 'text-white hover:bg-white/10'
+            }`}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}

@@ -49,21 +49,52 @@ const About = () => {
         {/* ── Body: 2 columns ── */}
         <div className="grid lg:grid-cols-[1fr_420px] gap-12 lg:gap-16 items-start">
 
-          {/* Left: Numbered pillars */}
-          <div className="grid sm:grid-cols-2 gap-5">
-            {pillars.map((p, i) => (
-              <ScrollReveal key={p.number} delay={i * 0.07}>
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  transition={{ duration: 0.2 }}
-                  className="group p-6 rounded-2xl border border-border bg-white hover:shadow-lg hover:border-primary/20 transition-all duration-300"
-                >
-                  <div className="text-[11px] font-black tracking-[0.14em] text-primary/40 mb-3">{p.number}</div>
-                  <h3 className="text-sm font-bold text-dark mb-2 group-hover:text-primary transition-colors">{p.title}</h3>
-                  <p className="text-xs text-muted leading-relaxed">{p.body}</p>
-                </motion.div>
-              </ScrollReveal>
-            ))}
+          {/* Left: Numbered pillars & Image */}
+          <div className="flex flex-col gap-10">
+            <div className="grid sm:grid-cols-2 gap-5">
+              {pillars.map((p, i) => (
+                <ScrollReveal key={p.number} delay={i * 0.07}>
+                  <motion.div
+                    whileHover={{ y: -3 }}
+                    transition={{ duration: 0.2 }}
+                    className="group p-6 rounded-2xl border border-border bg-white hover:shadow-lg hover:border-primary/20 transition-all duration-300"
+                  >
+                    <div className="text-[11px] font-black tracking-[0.14em] text-primary/40 mb-3">{p.number}</div>
+                    <h3 className="text-sm font-bold text-dark mb-2 group-hover:text-primary transition-colors">{p.title}</h3>
+                    <p className="text-xs text-muted leading-relaxed">{p.body}</p>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
+            
+            <ScrollReveal delay={0.2}>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="col-span-2 relative rounded-3xl overflow-hidden shadow-sm border border-border group h-48 md:h-64">
+                  <img 
+                    src="/warehouse.png" 
+                    alt="3PL Warehouse Operations" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent opacity-40"></div>
+                </div>
+                <div className="relative rounded-3xl overflow-hidden shadow-sm border border-border group h-32 md:h-48">
+                  <img 
+                    src="/fleet.png" 
+                    alt="Logistics Fleet" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent opacity-40"></div>
+                </div>
+                <div className="relative rounded-3xl overflow-hidden shadow-sm border border-border group h-32 md:h-48">
+                  <img 
+                    src="/tech.png" 
+                    alt="Logistics Technology" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent opacity-40"></div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Right: Feature list + CTA */}
